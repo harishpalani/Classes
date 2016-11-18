@@ -7,11 +7,12 @@
 
 using namespace std;
 
-vector<Media> media;
-
 int main() {
+  vector<Media*> media;
   
   cout << "classes.cpp — compilation successful!" << endl;
+  
+  media.push_back(new Media("Title", 2000));
   
   return 0;
 }

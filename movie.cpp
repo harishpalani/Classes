@@ -21,7 +21,7 @@ Movie(char _title[10], int _year, char _director[10], int _duration, int _rating
   duration = _duration;
   rating = _rating;
 }*/
-    
+
 // Accessors
 void Movie::getDirector(char* destArr) { 
   for (int i = 0; i < sizeof(director); i++) {
