@@ -4,39 +4,39 @@
 
 using namespace std;
 
-int main() {
-  cout << "movie.cpp — compilation successful!" << endl;
-}
-
 // Constructor
-/*Movie(char _title[10], int _year) {
+Movie::Movie(char* _director, char* _duration, char* _rating, char* _year, char* _title):Media() {
+  director = new char[100];
+  rating = new char[100];
+  duration = new char[100];
+  strcpy(director, _director);
+  strcpy(rating, _rating);
+  strcpy(duration, _duration);
   strcpy(title, _title);
-  year = _year;
+  strcpy(year, _year);
+  id = 3;
 }
 
-Movie(char _title[10], int _year, char _director[10], int _duration, int _rating) {
-  strcpy(title, _title);
-  year = _year;
-  strcpy(director, _director);
-  duration = _duration;
-  rating = _rating;
-}*/
+// Deconstructor
+Movie::~Movie(){
+  delete [] director;
+  delete []  time;
+  delete []  rating;
+}
 
 // Accessors
-void Movie::getDirector(char* destArr) { 
-  for (int i = 0; i < sizeof(director); i++) {
-    destArr[i] = director[i];
-  }
+char* Movie::getDirector() { 
+  return director;
 }
 
-int Movie::getDuration() {
+char* Movie::getDuration() {
   return duration;
 }
 
-int Movie::getRating() {
+char* Movie::getRating() {
   return rating;
 }
 
-char Movie::getType() { // classify by second letter in class
-  return 'o';
+void Movie::printInfo(){
+  cout < <"Movie: " << "-Title: " << title << " -Year: " << year << " -Director: " << director << " -Duration: " << time << " -Rating: " << rating << endl;
 }

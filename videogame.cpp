@@ -10,27 +10,31 @@ int main() {
 }
 
 // Constructor
-VideoGame::VideoGame() {
-  fill(begin(publisher), end(publisher), '\0');
-  rating = 0;
+VideoGame::VideoGame(char* _publisher, char* _rating, char* _title, char* _year):Media() {
+  rating = new char[100];
+  publisher = new char[100];
+  strcpy(publisher, _publisher);
+  strcpy(rating, _rating);
+  strcpy(title, _title);
+  strcpy(year, _year);
+  id = 1;
 }
 
-VideoGame::VideoGame(char _publisher[10], int _rating) {
-  strcpy(publisher, _publisher);
-  rating = _rating;
+// Deconstructor
+VideoGame::~VideoGame() {
+  delete [] publisher;
+  delete [] rating;
 }
 
 // Accessors
-void VideoGame::getPublisher(char* destArr) {
-  for (int i = 0; i < sizeof(publisher); i++) {
-    destArr[i] = publisher[i];
-  }
+char* VideoGame::getPublisher(){
+  return publisher;
 }
 
-int VideoGame::getRating() {
+char* VideoGame::getRating(){
   return rating;
 }
 
-char VideoGame::getType() { // classify by second letter in class
-  return 'i';
+void VideoGame::printInfo(){
+  cout<< "Video Game: " << "-Title: " << title << " -Year: " << year << " -Publisher: " << publisher << " -Rating: " << rating << endl;
 }

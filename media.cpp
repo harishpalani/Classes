@@ -7,30 +7,26 @@ using namespace std;
 
 // Constructor
 Media::Media() {
-  fill(begin(title), end(title), '\0');
-  year = 0;
+  title = new char[100];
+  year = new char[100];
+  id = 0;
 }
 
-Media::Media(char _title[10], int _year) {
-  strcpy(title, _title);
-  year = _year;
-}
-
-int main() {
-  cout << "media.cpp — compilation successful!" << endl;
+// Deconstructor
+Media::~Media() {
+  delete [] title;
+  delete [] year;
 }
 
 // Accessors
-void Media::getTitle(char* destArr) {
-  for (int i = 0; i < sizeof(title); i++) {
-    destArr[i] = title[i];
-  }
+char* Media::getTitle() {
+  return title;
 }
 
-int Media::getYear() {
+char* Media::getYear() {
   return year;
 }
 
-char Media::getType() { // classify by second letter in class
-  return 'e';
+int Media::getID() {
+  return id;
 }

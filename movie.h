@@ -5,29 +5,21 @@
 
 class Movie : public Media {
   private:
-   char director[10];
-   int duration;
-   int rating;
+    char* director; // char director[10];
+    char* duration; // int duration;
+    char* rating; // int rating;
   
   public:
     // Constructor
-    /*Movie(char _title[10], int _year) {
-      strcpy(title, _title);
-      year = _year;
-    }
-    Movie(char _title[10], int _year, char _director[10], int _duration, int _rating) {
-      strcpy(title, _title);
-      year = _year;
-      strcpy(director, _director);
-      duration = _duration;
-      rating = _rating;
-    }*/
+    Movie(char* _director, char* _duration, char* _rating, char* _year, char* _title);
+    ~Movie();
     
     // Accessors
-    void getDirector(char* destArr);
-    int getDuration();
-    int getRating();
-    char getType();
+    char* getDirector(); // void getDirector(char* destArr);
+    char* getDuration(); // int getDuration();
+    char* getRating(); // int getRating();
+    
+    void printInfo();
 };
 
 #endif

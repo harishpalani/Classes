@@ -9,29 +9,38 @@ int main() {
 }
 
 // Constructor
-/*Music(char _title[10], int _year) {
+Music::Music(char* _publisher, char* _artist, char* _title, char* _year, char* _duration):Media() {
+  publisher = new char[100];
+  artist = new char[100];
+  duration = new char[100];
+  strcpy(publisher, _publisher);
+  strcpy(artist, _artist);
+  strcpy(duration, _duration);
   strcpy(title, _title);
-  year = _year;
+  strcpy(year, _year);
+  id = 2;
 }
 
-Music(char _title[10], int _year, char _artist[10], int _duration) {
-  strcpy(title, _title);
-  year = _year;
-  strcpy(artist, _artist);
-  duration = _duration;
-}*/
+// Deconstructor
+Music::~Music() {
+  delete [] publisher;
+  delete [] artist;
+  delete [] duration;
+}
     
 // Accessors
-void Music::getArtist(char* destArr) {
-  for (int i = 0; i < sizeof(artist); i++) {
-    destArr[i] = artist[i];
-  }
+char* Music::getPublisher(){
+  return publisher;
 }
 
-int Music::getDuration() {
+char* Music::getArtist(){
+  return artist;
+}
+
+char* Music::getDuration(){
   return duration;
 }
 
-char Music::getType() { // classify by second letter in class
-  return 'u';
+void Music::printInfo(){
+  cout << "Music: " << "-Title: " << title << " -Year: " << year << " -Artist: " << artist << " -Publisher: " << publisher << " -Duration: " << time << endl;
 }

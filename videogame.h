@@ -5,19 +5,19 @@
 
 class VideoGame : public Media {
   private:
-    char publisher[10];
-    int rating;
+    char* publisher;
+    char* rating;
   
   public:
     // Constructor
-    VideoGame();
-    // VideoGame(char _title[10], int _year, char _publisher[10], int _rating);
-    VideoGame(char _publisher[10], int _rating);
+    VideoGame(char* _publisher, char* _rating, char* _title, char* _year);
+    ~VideoGame();
     
     // Accessors
-    void getPublisher(char* destArr);
-    int getRating();
-    char getType();
+    char* getPublisher();
+    char* getRating();
+    
+    void printInfo();
 };
 
 #endif

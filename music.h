@@ -5,26 +5,23 @@
 
 class Music : public Media {
   private:
-   char artist[10];
-   int duration;
+    char* publisher;
+    char* artist;
+    char* duration;
   
   public:
     // Constructor
-    /*Music(char _title[10], int _year) {
-      strcpy(title, _title);
-      year = _year;
-    }
-    Music(char _title[10], int _year, char _artist[10], int _duration) {
-      strcpy(title, _title);
-      year = _year;
-      strcpy(artist, _artist);
-      duration = _duration;
-    }*/
+    Music(char* _publisher, char* _artist, char* _title, char* _year, char* _duration);
+    
+    // Deconstructor
+    ~Music();
     
     // Accessors
-    void getArtist(char* destArr);
-    int getDuration();
-    char getType();
+    char* getPublisher();
+    char* getArtist();
+    char* getDuration();
+    
+    void printInfo();
 };
 
 #endif
