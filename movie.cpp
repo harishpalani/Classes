@@ -38,5 +38,5 @@ char* Movie::getRating() {
 }
 
 void Movie::printInfo(){
-  cout < <"Movie: " << "-Title: " << title << " -Year: " << year << " -Director: " << director << " -Duration: " << time << " -Rating: " << rating << endl;
+  cout < <"MOVIE |" << " Title: " << title << " / Year: " << year << " / Director: " << director << " / Duration: " << duration << " / Rating: " << rating << endl;
 }

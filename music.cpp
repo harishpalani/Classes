@@ -42,5 +42,5 @@ char* Music::getDuration(){
 }
 
 void Music::printInfo(){
-  cout << "Music: " << "-Title: " << title << " -Year: " << year << " -Artist: " << artist << " -Publisher: " << publisher << " -Duration: " << time << endl;
+  cout << "MUSIC |" << " / Title: " << title << " / Year: " << year << " / Artist: " << artist << " / Publisher: " << publisher << " / Duration: " << duration << endl;
 }

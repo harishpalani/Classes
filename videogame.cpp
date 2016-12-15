@@ -36,5 +36,5 @@ char* VideoGame::getRating(){
 }
 
 void VideoGame::printInfo(){
-  cout<< "Video Game: " << "-Title: " << title << " -Year: " << year << " -Publisher: " << publisher << " -Rating: " << rating << endl;
+  cout<< "VIDEO GAME |" << " / Title: " << title << " / Year: " << year << " / Publisher: " << publisher << " / Rating: " << rating << endl;
 }
