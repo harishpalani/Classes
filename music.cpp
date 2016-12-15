@@ -10,9 +10,9 @@ int main() {
 
 // Constructor
 Music::Music(char* _publisher, char* _artist, char* _title, char* _year, char* _duration):Media() {
-  publisher = new char[100];
-  artist = new char[100];
-  duration = new char[100];
+  publisher = new char[24];
+  artist = new char[24];
+  duration = new char[10];
   strcpy(publisher, _publisher);
   strcpy(artist, _artist);
   strcpy(duration, _duration);

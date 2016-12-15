@@ -6,9 +6,9 @@ using namespace std;
 
 // Constructor
 Movie::Movie(char* _director, char* _duration, char* _rating, char* _year, char* _title):Media() {
-  director = new char[100];
-  rating = new char[100];
-  duration = new char[100];
+  director = new char[24];
+  rating = new char[24];
+  duration = new char[10];
   strcpy(director, _director);
   strcpy(rating, _rating);
   strcpy(duration, _duration);
@@ -38,5 +38,5 @@ char* Movie::getRating() {
 }
 
 void Movie::printInfo(){
-  cout < <"MOVIE |" << " Title: " << title << " / Year: " << year << " / Director: " << director << " / Duration: " << duration << " / Rating: " << rating << endl;
+  cout << "MOVIE |" << " Title: " << title << " / Year: " << year << " / Director: " << director << " / Duration: " << duration << " / Rating: " << rating << endl;
 }

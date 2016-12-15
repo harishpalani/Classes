@@ -11,8 +11,8 @@ int main() {
 
 // Constructor
 VideoGame::VideoGame(char* _publisher, char* _rating, char* _title, char* _year):Media() {
-  rating = new char[100];
-  publisher = new char[100];
+  rating = new char[24];
+  publisher = new char[24];
   strcpy(publisher, _publisher);
   strcpy(rating, _rating);
   strcpy(title, _title);
@@ -36,5 +36,5 @@ char* VideoGame::getRating(){
 }
 
 void VideoGame::printInfo(){
-  cout<< "VIDEO GAME |" << " / Title: " << title << " / Year: " << year << " / Publisher: " << publisher << " / Rating: " << rating << endl;
+  cout << "VIDEO GAME |" << " / Title: " << title << " / Year: " << year << " / Publisher: " << publisher << " / Rating: " << rating << endl;
 }

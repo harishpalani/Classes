@@ -7,8 +7,8 @@ using namespace std;
 
 // Constructor
 Media::Media() {
-  title = new char[100];
-  year = new char[100];
+  title = new char[42];
+  year = new char[4];
   id = 0;
 }
 

@@ -19,7 +19,7 @@ int main() {
   char input;
   
   while(input != 'q'){
-    cout << "What would you like to do? (Enter a number.) \n1.Add\n2.Search\n3.Delete\n4.Quit" << endl;
+    cout << "Would you like to (1) add, (2) search, (3) delete, or (q) quit?" << endl;
     cin >> input;
     if (input == '1') {
       add(dbPtr);
@@ -35,58 +35,58 @@ int main() {
 
 // Functions
 void add(vector<Media*>* db) {
-  char title[100];
-  char year[100];
+  char title[42];
+  char year[4];
   int input;
   
   cout << "What's the title?" << endl;
-  cin >> title;
+  cin.getline(title, 42);
   cout << "What year was it released in?" << endl;
-  cin >> year;
+  cin.getline(year, 4);
   
-  cout << "Is it: (1) a video game, \n (2) music, or \n (3) movies? \n Enter a number." << endl;
+  cout << "Is it: (1) a video game, (2) music, or (3) movies?" << endl;
   cin >> input;
   
   if (input == 1) {
-    char rating[100];
-    char publisher[100];
+    char rating[24];
+    char publisher[24];
     
     cout << "What's the rating?" << endl;
-    cin >> rating;
+    cin.getline(rating, 24);
     cout << "Who's the publisher?" << endl;
-    cin >> publisher;
+    cin.getline(publisher, 24);
     
     VideoGame* videogame = new VideoGame(publisher, rating, title, year);
     db -> push_back(videogame);
     
     cout << title << " successfully added to the database." << endl;
   } else if (input == 2) {
-    char publisher[100];
-    char artist[100];
-    char duration[100];
+    char publisher[24];
+    char artist[24];
+    char duration[10];
     
     cout << "Who's the publisher?" << endl;
-    cin >> publisher;
+    cin.getline(publisher, 24);
     cout << "Who's the artist?" << endl;
-    cin >> artist;
+    cin.getline(artist, 24);
     cout << "What's the duration?" << endl;
-    cin >> duration;
+    cin.getline(duration, 10);
     
     Music* music = new Music(publisher, artist, title, year, duration);
     db -> push_back(music);
     
     cout << title << " successfully added to the database." << endl;
   } else if (input == 3) {
-    char director[100];
-    char duration[100];
-    char rating[100];
+    char director[24];
+    char duration[10];
+    char rating[24];
     
     cout << "Who's the director?" << endl;
-    cin >> director;
+    cin.getline(director, 24);
     cout << "What's the duration?" << endl;
-    cin >> duration;
+    cin.getline(duration, 10);
     cout << "What's the rating?" << endl;
-    cin >> rating;
+    cin.getline(rating, 24);
     
     Movie* movie = new Movie(director, duration, rating, year, title);
     db -> push_back(movie);
@@ -102,10 +102,10 @@ void search(vector<Media*> db) {
   cin >> input;
   
   if (input == 1) {
-    char title[100];
+    char title[42];
     
     cout << "What's the title?" << endl;
-    cin >> title;
+    cin.getline(title, 42);
     
     for (int i = 0; i < db.size(); i++) {
       cout << "Here are your results: " << endl;
@@ -121,10 +121,10 @@ void search(vector<Media*> db) {
       }
     }
   } else if (input == 2) {
-    char year[100];
+    char year[4];
     
     cout << "What year was it released in?" << endl;
-    cin >> year;
+    cin.getline(year, 4);
     
     for (int i = 0; i < db.size(); i++) {
       cout << "Here are your results: " << endl;
@@ -149,10 +149,10 @@ void del(vector<Media*> db) {
   cin >> input;
   
   if (input == 1) {
-    char title[100];
+    char title[42];
     
     cout << "What's the title?" << endl;
-    cin >> title;
+    cin.getline(title, 42);
     
     for (int i = 0; i < db.size(); i++) {
       cout << "Here are your results: " << endl;
@@ -171,10 +171,10 @@ void del(vector<Media*> db) {
       }
     }
   } else if (input == 2) {
-    char year[100];
+    char year[4];
     
     cout << "What year was it released in?" << endl;
-    cin >> year;
+    cin.getline(year, 4);
     
     for (int i = 0; i < db.size(); i++) {
       cout << "Here are your results: " << endl;
