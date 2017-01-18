@@ -1,6 +1,7 @@
 #include "movie.h"
 
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -20,8 +21,8 @@ Movie::Movie(char* _director, char* _duration, char* _rating, char* _year, char*
 // Deconstructor
 Movie::~Movie(){
   delete [] director;
-  delete []  time;
-  delete []  rating;
+  delete [] duration;
+  delete [] rating;
 }
 
 // Accessors

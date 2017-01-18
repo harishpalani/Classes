@@ -1,12 +1,9 @@
 #include "music.h"
 
 #include <iostream>
+#include <cstring>
 
 using namespace std;
-
-int main() {
-  cout << "music.cpp — compilation successful!" << endl;
-}
 
 // Constructor
 Music::Music(char* _publisher, char* _artist, char* _title, char* _year, char* _duration):Media() {
@@ -42,5 +39,5 @@ char* Music::getDuration(){
 }
 
 void Music::printInfo(){
-  cout << "MUSIC |" << " / Title: " << title << " / Year: " << year << " / Artist: " << artist << " / Publisher: " << publisher << " / Duration: " << duration << endl;
+  cout << "MUSIC |" << " Title: " << title << " / Year: " << year << " / Artist: " << artist << " / Publisher: " << publisher << " / Duration: " << duration << endl;
 }

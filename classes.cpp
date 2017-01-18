@@ -19,8 +19,10 @@ int main() {
   char input;
   
   while(input != 'q'){
-    cout << "Would you like to (1) add, (2) search, (3) delete, or (q) quit?" << endl;
+    cout << "\nWould you like to (1) add, (2) search, (3) delete, or (q) quit?" << endl;
     cin >> input;
+    cin.ignore();
+    
     if (input == '1') {
       add(dbPtr);
     } else if (input == '2') {
@@ -36,16 +38,22 @@ int main() {
 // Functions
 void add(vector<Media*>* db) {
   char title[42];
-  char year[4];
+  char year[5];
   int input;
   
   cout << "What's the title?" << endl;
   cin.getline(title, 42);
-  cout << "What year was it released in?" << endl;
-  cin.getline(year, 4);
+
+  for (int i = 0; i < strlen(title); i++) {
+    title[i] = toupper(title[i]);
+  }
   
-  cout << "Is it: (1) a video game, (2) music, or (3) movies?" << endl;
+  cout << "What year was it released in?" << endl;
+  cin.getline(year, 5);
+  
+  cout << "Is it: (1) a video game, (2) music, or (3) a movie?" << endl;
   cin >> input;
+  cin.ignore();
   
   if (input == 1) {
     char rating[24];
@@ -59,7 +67,7 @@ void add(vector<Media*>* db) {
     VideoGame* videogame = new VideoGame(publisher, rating, title, year);
     db -> push_back(videogame);
     
-    cout << title << " successfully added to the database." << endl;
+    cout << "\n" << title << " successfully added to the database." << endl;
   } else if (input == 2) {
     char publisher[24];
     char artist[24];
@@ -75,7 +83,7 @@ void add(vector<Media*>* db) {
     Music* music = new Music(publisher, artist, title, year, duration);
     db -> push_back(music);
     
-    cout << title << " successfully added to the database." << endl;
+    cout << "\n" << title << " successfully added to the database." << endl;
   } else if (input == 3) {
     char director[24];
     char duration[10];
@@ -91,7 +99,7 @@ void add(vector<Media*>* db) {
     Movie* movie = new Movie(director, duration, rating, year, title);
     db -> push_back(movie);
     
-    cout << title << " successfully added to the database." << endl;
+    cout << "\n" << title << " successfully added to the database." << endl;
   }
 }
 
@@ -100,16 +108,21 @@ void search(vector<Media*> db) {
   
   cout << "Would you like to search by (1) title or (2) year?" << endl;
   cin >> input;
+  cin.ignore();
   
   if (input == 1) {
     char title[42];
     
     cout << "What's the title?" << endl;
     cin.getline(title, 42);
+
+    for (int i = 0; i < strlen(title); i++) {
+      title[i] = toupper(title[i]);
+    }
+
+    cout << "\nHere are your results: " << endl;
     
     for (int i = 0; i < db.size(); i++) {
-      cout << "Here are your results: " << endl;
-      
       if (strcmp(title, db[i] -> getTitle()) == 0) {
         if (db[i] -> getID() == 1) {
           ((VideoGame*) db[i]) -> printInfo();
@@ -121,14 +134,14 @@ void search(vector<Media*> db) {
       }
     }
   } else if (input == 2) {
-    char year[4];
+    char year[5];
     
     cout << "What year was it released in?" << endl;
-    cin.getline(year, 4);
+    cin.getline(year, 5);
+
+    cout << "\nHere are your results: " << endl;
     
     for (int i = 0; i < db.size(); i++) {
-      cout << "Here are your results: " << endl;
-      
       if (strcmp(year, db[i] -> getYear()) == 0) {
         if (db[i] -> getID() == 1) {
           ((VideoGame*) db[i]) -> printInfo();
@@ -153,42 +166,47 @@ void del(vector<Media*> db) {
     
     cout << "What's the title?" << endl;
     cin.getline(title, 42);
+    cin.ignore();
+    
+    for (int i = 0; i < strlen(title); i++) {
+      title[i] = toupper(title[i]);
+    }
+
+    cout << "\nHere are your results: " << endl;
     
     for (int i = 0; i < db.size(); i++) {
-      cout << "Here are your results: " << endl;
-      
       if (strcmp(title, db[i] -> getTitle()) == 0) {
         if (db[i] -> getID() == 1) {
           delete ((VideoGame*) db[i]);
-	        db.erase(db.begin() + i);
+	  db.erase(db.begin() + i);
         } else if(db[i] -> getID() == 2) {
           delete ((Music*) db[i]);
-	        db.erase(db.begin() + i);
+	  db.erase(db.begin() + i);
         } else if(db[i] -> getID() == 3) {
           delete ((Movie*) db[i]);
-	        db.erase(db.begin() + i);
+	  db.erase(db.begin() + i);
         }
       }
     }
   } else if (input == 2) {
-    char year[4];
+    char year[5];
     
     cout << "What year was it released in?" << endl;
-    cin.getline(year, 4);
+    cin.getline(year, 5);
+
+    cout << "\nHere are your results: " << endl;
     
-    for (int i = 0; i < db.size(); i++) {
-      cout << "Here are your results: " << endl;
-      
+    for (int i = 0; i < db.size(); i++) {      
       if (strcmp(year, db[i] -> getYear()) == 0) {
         if (db[i] -> getID() == 1) {
-          delete ((VideoGame*) db[i]);
-	        db.erase(db.begin() + i);
+	  delete ((VideoGame*) db[i]);
+	  db.erase(db.begin() + i);
         } else if(db[i] -> getID() == 2) {
           delete ((Music*) db[i]);
-	        db.erase(db.begin() + i);
+	  db.erase(db.begin() + i);
         } else if(db[i] -> getID() == 3) {
           delete ((Movie*) db[i]);
-	        db.erase(db.begin() + i);
+	  db.erase(db.begin() + i);
         }
       }
     }

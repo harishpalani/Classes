@@ -5,10 +5,6 @@
 
 using namespace std;
 
-int main() {
-  cout << "videogame.cpp — compilation successful!" << endl;
-}
-
 // Constructor
 VideoGame::VideoGame(char* _publisher, char* _rating, char* _title, char* _year):Media() {
   rating = new char[24];
@@ -36,5 +32,5 @@ char* VideoGame::getRating(){
 }
 
 void VideoGame::printInfo(){
-  cout << "VIDEO GAME |" << " / Title: " << title << " / Year: " << year << " / Publisher: " << publisher << " / Rating: " << rating << endl;
+  cout << "VIDEO GAME |" << " Title: " << title << " / Year: " << year << " / Publisher: " << publisher << " / Rating: " << rating << endl;
 }
